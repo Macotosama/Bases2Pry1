@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <button mat-flat-button [matMenuTriggerFor]="menu" class="Menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>face</mat-icon>
+      <span>Clientes</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>directions_bus</mat-icon>
+      <span>Proveedores</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>store</mat-icon>
+      <span>Productos</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>shopping_cart</mat-icon>
+      <span>Ventas</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>analytics</mat-icon>
+      <span>Estadísticas </span>
+    </button>
+  </mat-menu>
+  <div  class="Titulo">
+    <span>Wide World Importers</span>
+    <mat-icon class="iconoTitulo">local_shipping</mat-icon>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

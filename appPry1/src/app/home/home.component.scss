@@ -1,10 +1,68 @@
-.fondoHome
+.clientes
 {
-    //position: absolute;
-    max-width: 100%;
-    margin: auto;
+    position: relative;
+    color: white;
+    border-color: white;
+    width: 20%;
 }
-.cliente
+.proveedores
+{
+    //left: 10%;
+    position: relative;
+    color: white;
+    border-color: white;
+    width: 20%;
+}
+.productos
+{
+    //left: 20%;
+    position: relative;
+    color: white;
+    border-color: white;
+    width: 20%;
+}
+.ventas
+{
+    //left: 30%;
+    position: relative;
+    color: white;
+    border-color: white;
+    width: 20%;
+}
+.estadisticas
+{
+    //left: 40%;
+    position: relative;
+    color: white;
+    border-color: white;
+    width: 20%;
+}
+.tituloMain
+{
+    font-size: 3em;
+    position: relative;
+    top: 70px;
+    left: 33%;
+    color: white;
+    width: 450px;
+}
+.parrafoMain
+{
+    text-align: justify;
+    //font-size: 1em;
+    left: 10%;
+    top: 100px;
+    position: relative;
+    color: white;
+    width: 80%;
+}
+.main
 {
     position: absolute;
+    background-image:url("/../assets/images/AvionCargaH.jpg");
+    width: 100%;
+    height: 100vh;
+    background-position: center center;
+    //background-repeat: no-repeat;
+    //background-attachment: fixed;
 }

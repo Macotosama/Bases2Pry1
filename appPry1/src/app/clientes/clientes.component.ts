@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { DialogClienteComponent } from '../dialog-cliente/dialog-cliente.component'
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   trigger,
   state,
@@ -44,6 +45,12 @@ export class ClientesComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  dialogClientes() {
+    const dialogRef = this.dialog.open(DialogClienteComponent, {
+      width: '600px', height: '550px'
+    })
   }
 
 }

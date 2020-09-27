@@ -1,15 +1,15 @@
 <div class="main">
   <div class="botones">
-    <button mat-stroked-button class="clientes">Clientes</button>
-    <button mat-stroked-button class="proveedores">Proveedores</button>
-    <button mat-stroked-button class="productos">Productos</button>
-    <button mat-stroked-button class="ventas">Ventas</button>
-    <button mat-stroked-button class="estadisticas">Estadísticas</button>
+    <button mat-stroked-button class="clientes" @enterState [routerLink]="['/clientes']">Clientes</button>
+    <button mat-stroked-button class="proveedores" @enterState>Proveedores</button>
+    <button mat-stroked-button class="productos" @enterState>Productos</button>
+    <button mat-stroked-button class="ventas" @enterState>Ventas</button>
+    <button mat-stroked-button class="estadisticas" @enterState>Estadísticas</button>
   </div>
     <div>
       <div>
-          <h1 class="tituloMain">Wide World Importers</h1>
-          <p class="parrafoMain">
+          <h1 class="tituloMain" @enterState2>Wide World Importers</h1>
+          <p class="parrafoMain" @enterState2>
             Como vendedor mayorista, los clientes de WWI son en su mayoría empresas que revenden 
             a particulares. WWI vende a clientes minoristas en los Estados Unidos, incluidas tiendas 
             especializadas, supermercados, tiendas de informática, tiendas de atracciones turísticas

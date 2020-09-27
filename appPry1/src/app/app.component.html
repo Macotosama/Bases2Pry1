@@ -3,7 +3,7 @@
     <mat-icon class="Menu">menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/clientes']">
       <mat-icon>face</mat-icon>
       <span>Clientes</span>
     </button>
@@ -24,7 +24,7 @@
       <span>Estadísticas </span>
     </button>
   </mat-menu>
-  <div  class="Titulo">
+  <div  class="Titulo" [routerLink]="['/home']">
     <span>Wide World Importers</span>
     <mat-icon class="iconoTitulo">local_shipping</mat-icon>
   </div>

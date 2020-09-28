@@ -49,7 +49,7 @@ export class ClientesComponent implements OnInit {
 
   dialogClientes() {
     const dialogRef = this.dialog.open(DialogClienteComponent, {
-      width: '600px', height: '550px'
+      width: '800px', height: '550px'
     })
   }
 

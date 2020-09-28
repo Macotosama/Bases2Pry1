@@ -15,13 +15,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { DialogClienteComponent } from './dialog-cliente/dialog-cliente.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { ProveedoresComponent } from './proveedores/proveedores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ClientesComponent,
-    DialogClienteComponent
+    DialogClienteComponent,
+    ProveedoresComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

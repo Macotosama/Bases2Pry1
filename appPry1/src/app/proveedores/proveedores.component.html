@@ -1,0 +1,31 @@
+<div class="mainFondo">
+    <div>
+        <h1 class="titulo" @enterState>Clientes</h1>
+        <mat-form-field appearance="fill" @enterState2>
+            <mat-label>Nombre</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>
+    </div>
+    <div>
+        <mat-table [dataSource]="contenidos" class="tabla">
+            <ng-container matColumnDef="nombre">
+            <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="categoria">
+            <mat-header-cell *matHeaderCellDef> Categoría</mat-header-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="metodo">
+            <mat-header-cell *matHeaderCellDef> Método de entrega</mat-header-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+        </mat-table>
+    </div>
+</div>

@@ -2,6 +2,10 @@
 {
     text-align: right;
 }
+td
+{
+    border-bottom: black 1px solid;
+}
 .fondo
 {
     height: 100%;
@@ -10,6 +14,13 @@
 }
 .egt
 {
+    position: relative;
     position: center;
     width: 100%;
+}
+.mapin
+{
+    position: relative;
+    left: 15%;
+    width: 40%;
 }

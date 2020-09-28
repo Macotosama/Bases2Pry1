@@ -1,8 +1,8 @@
 <div class="main">
   <div class="botones">
     <button mat-stroked-button class="clientes" @enterState [routerLink]="['/clientes']">Clientes</button>
-    <button mat-stroked-button class="proveedores" @enterState>Proveedores</button>
-    <button mat-stroked-button class="productos" @enterState>Productos</button>
+    <button mat-stroked-button class="proveedores" @enterState [routerLink]="['/proveedores']">Proveedores</button>
+    <button mat-stroked-button class="productos" @enterState [routerLink]="['/inventarios']">Inventario</button>
     <button mat-stroked-button class="ventas" @enterState>Ventas</button>
     <button mat-stroked-button class="estadisticas" @enterState>Estadísticas</button>
   </div>

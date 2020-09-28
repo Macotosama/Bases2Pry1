@@ -1,6 +1,6 @@
 <div class="mainFondo">
     <div>
-        <h1 class="titulo" @enterState>Proveedores</h1>
+        <h1 class="titulo" @enterState>Inventarios</h1>
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>Nombre</mat-label>
             <input matInput>
@@ -20,7 +20,7 @@
             </ng-container>
         
             <ng-container matColumnDef="metodo">
-            <mat-header-cell *matHeaderCellDef> Método de entrega</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> Cantidad</mat-header-cell>
             <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
             </ng-container>
         
@@ -29,3 +29,4 @@
         </mat-table>
     </div>
 </div>
+

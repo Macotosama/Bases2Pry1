@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogProveedorComponent } from '../dialog-proveedor/dialog-proveedor.component';
+import { DialogInventarioComponent } from '../dialog-inventario/dialog-inventario.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   trigger,
@@ -10,9 +10,9 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-proveedores',
-  templateUrl: './proveedores.component.html',
-  styleUrls: ['./proveedores.component.scss'],
+  selector: 'app-inventarios',
+  templateUrl: './inventarios.component.html',
+  styleUrls: ['./inventarios.component.scss'],
   animations: [
     trigger('enterState', [
       state('void', style({
@@ -38,7 +38,7 @@ import {
     ])
   ]
 })
-export class ProveedoresComponent implements OnInit {
+export class InventariosComponent implements OnInit {
   public columnas = ['nombre', 'categoria', 'metodo'];
   public contenidos = [1, 2, 3];
 
@@ -48,9 +48,8 @@ export class ProveedoresComponent implements OnInit {
   }
 
   dialogClientes() {
-    const dialogRef = this.dialog.open(DialogProveedorComponent, {
+    const dialogRef = this.dialog.open(DialogInventarioComponent, {
       width: '800px', height: '550px'
     })
   }
-  
 }

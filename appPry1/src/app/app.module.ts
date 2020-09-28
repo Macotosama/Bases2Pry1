@@ -17,6 +17,10 @@ import { DialogClienteComponent } from './dialog-cliente/dialog-cliente.componen
 import { MatDialogModule } from '@angular/material/dialog';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
+import { DialogProveedorComponent } from './dialog-proveedor/dialog-proveedor.component';
+import { InventariosComponent } from './inventarios/inventarios.component';
+import { DialogInventarioComponent } from './dialog-inventario/dialog-inventario.component';
+import { VentasComponent } from './ventas/ventas.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { ProveedoresComponent } from './proveedores/proveedores.component';
     HomeComponent,
     ClientesComponent,
     DialogClienteComponent,
-    ProveedoresComponent
+    ProveedoresComponent,
+    DialogProveedorComponent,
+    InventariosComponent,
+    DialogInventarioComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,

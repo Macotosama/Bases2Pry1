@@ -21,6 +21,8 @@ import { DialogProveedorComponent } from './dialog-proveedor/dialog-proveedor.co
 import { InventariosComponent } from './inventarios/inventarios.component';
 import { DialogInventarioComponent } from './dialog-inventario/dialog-inventario.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { DialogVentasComponent } from './dialog-ventas/dialog-ventas.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { VentasComponent } from './ventas/ventas.component';
     DialogProveedorComponent,
     InventariosComponent,
     DialogInventarioComponent,
-    VentasComponent
+    VentasComponent,
+    DialogVentasComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,

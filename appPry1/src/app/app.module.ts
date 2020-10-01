@@ -23,6 +23,9 @@ import { DialogInventarioComponent } from './dialog-inventario/dialog-inventario
 import { VentasComponent } from './ventas/ventas.component';
 import { DialogVentasComponent } from './dialog-ventas/dialog-ventas.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
     MatInputModule,
     MatTableModule,
     MatDialogModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

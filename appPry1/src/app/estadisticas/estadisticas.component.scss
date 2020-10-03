@@ -2,7 +2,7 @@
 {
     background-color: #062f4f;
     width: 100%;
-    height: 300%;
+    height:410%;
 }
 mat-label
 {
@@ -36,7 +36,7 @@ mat-form-field
     border-color: white;
     width: 15%;
     left: -6%;
-    top: 8+90px;
+    top:  90px;
 }
 .tabla
 {
@@ -76,14 +76,33 @@ tr
     position: relative;
     top: 200px;
 }
-.fecha1
-{
-    position: relative;
-    top: 350px;
-}
-.canvas1
+.conter2
 {
     position: relative;
     top: 400px;
 }
-
+.canvas1
+{
+    position: relative;
+    top: 500px;
+}
+.conter3
+{
+    position: relative;
+    top: 600px;
+}
+.canvas2
+{
+    position: relative;
+    top: 700px;
+}
+.conter4
+{
+    position: relative;
+    top: 800px;
+}
+.canvas3
+{
+    position: relative;
+    top: 900px;
+}

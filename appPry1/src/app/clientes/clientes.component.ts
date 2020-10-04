@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogClienteComponent } from '../dialog-cliente/dialog-cliente.component'
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogProveedorComponent } from '../dialog-proveedor/dialog-proveedor.component';
+import { Api } from '../servicios/api';
+import { Cliente } from '../servicios/modelos/cliente';
+import { ClientesCategorias } from '../servicios/modelos/clientesCategorias';
+import { ClienteMetodo } from '../servicios/modelos/clientesMetodos';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import {
   trigger,
   state,
@@ -40,16 +44,42 @@ import {
 })
 export class ClientesComponent implements OnInit {
   public columnas = ['nombre', 'categoria', 'metodo'];
-  public contenidos = [1, 2, 3];
+  public contenidos : Cliente;
+  public categorias : ClientesCategorias;
+  public metodos : ClienteMetodo;
 
-  constructor(public dialog: MatDialog) { }
-
-  ngOnInit(): void {
+  constructor(public dialog: MatDialog,
+    private api: Api) {
   }
 
-  dialogClientes() {
-    const dialogRef = this.dialog.open(DialogClienteComponent, {
-      width: '800px', height: '550px'
+  ngOnInit(): void {
+    this.getcliente();
+    this.getclientecategoria();
+    this.getclientemetodo();
+  }
+  
+  getcliente() {
+    this.api.getClientes().subscribe(Cliente => {
+      this.contenidos = Cliente;
+    });
+  }
+
+  getclientecategoria() {
+    this.api.getClientesCategorias().subscribe(ClientesCategorias => {
+      this.categorias = ClientesCategorias;
+    });
+  }
+
+  getclientemetodo() {
+    this.api.getClientesMetodo().subscribe(ClienteMetodo => {
+      this.metodos = ClienteMetodo;
+    });
+  }
+
+  dialogClientes(cliente: Cliente) {
+    const dialogRef = this.dialog.open(DialogProveedorComponent, {
+      width: '800px', height: '550px',
+      data: cliente
     })
   }
 

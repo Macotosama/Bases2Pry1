@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
+import { Cliente } from '../servicios/modelos/cliente';
 
 @Component({
   selector: 'app-dialog-proveedor',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog-proveedor.component.scss']
 })
 export class DialogProveedorComponent implements OnInit {
+  public position;
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DialogProveedorComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Cliente) { 
+      this.position = {lat: data.Latitud, lng: data.Longitud}
+    }
 
   ngOnInit(): void {
   }

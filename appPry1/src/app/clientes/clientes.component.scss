@@ -12,10 +12,6 @@ input
 {
     color: white;
 }
-.not-empty-select.mat-selected
-{
-    color: white !important;
-}
 mat-form-field
 {
     position: relative;
@@ -38,14 +34,16 @@ mat-form-field
     color: white;
     border-color: white;
     width: 15%;
-    left: -6%;
+    left: -29%;
     top: 8+90px;
 }
 .tabla
 {
+    overflow: auto;
     position: relative;
     top: 100px;
     width: 80%;
+    height: 500px;
     left: 9%;
     background: green($color: #000000);
     border: whitesmoke 1px solid;

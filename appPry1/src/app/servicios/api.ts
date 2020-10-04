@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { Cliente } from '../servicios/modelos/cliente';
+import { ClientesCategorias } from '../servicios/modelos/clientesCategorias';
+import { ClienteMetodo } from '../servicios/modelos/clientesMetodos';
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -13,17 +15,23 @@ const httpOption = {
   providedIn: 'root'
 })
 export class Api {
-  private url: string = 'http://localhost:4000/AllClienteInformation';
-  private urlEdit: string = 'http://localhost:4000/api/update';
-  private urlDelet: string = 'http://localhost:4000/api/remove';
+  private url: string = 'http://localhost:8000/AllClienteInformation';
+  private urlClienteCantegoria: string = 'http://localhost:8000/getAllCategoryNames';
+  private urlClienteMetodo: string = 'http://localhost:8000/getAllCategoriesDeliveryMethodNames';
   private urlAdd: string = 'http://localhost:4000/api/add';
   private urlFind: string = 'http://localhost:4000/api/find';
   constructor(
     private _http: HttpClient
   ){}
 
-  get(): Observable<Response> {
-    return this._http.get<Response>(this.url);
+  getClientes(): Observable<Cliente> {
+    return this._http.get<Cliente>(this.url);
+  }
+  getClientesCategorias(): Observable<ClientesCategorias> {
+    return this._http.get<ClientesCategorias>(this.urlClienteCantegoria);
+  }
+  getClientesMetodo(): Observable<ClienteMetodo> {
+    return this._http.get<ClienteMetodo>(this.urlClienteMetodo);
   }
 /*
   add(cliente: Telefono):Observable<Response>{

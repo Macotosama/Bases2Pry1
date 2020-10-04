@@ -3,18 +3,18 @@
         <h1 class="titulo" @enterState>Clientes</h1>
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>Nombre</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="nombre">
         </mat-form-field>
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>Categoría</mat-label>
-            <mat-select>
+            <mat-select  [(ngModel)]="categoria">
               <mat-option value="" class="empty-select"></mat-option>
               <mat-option value="item.CustomerCategoryName" class="not-empty-select" *ngFor="let item of categorias">{{item.CustomerCategoryName}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="fill" @enterState2>
             <mat-label>Método de entrega</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)]="metodo">
               <mat-option value="" class="empty-select"></mat-option>
               <mat-option value="item.DeliveryMethodName" class="not-empty-select" *ngFor="let item of metodos">{{item.DeliveryMethodName}}</mat-option>
             </mat-select>

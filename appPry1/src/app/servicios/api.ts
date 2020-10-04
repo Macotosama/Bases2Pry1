@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Cliente } from '../servicios/modelos/cliente';
 import { ClientesCategorias } from '../servicios/modelos/clientesCategorias';
 import { ClienteMetodo } from '../servicios/modelos/clientesMetodos';
+import { Inventario } from '../servicios/modelos/inventario';
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -18,7 +19,7 @@ export class Api {
   private url: string = 'http://localhost:8000/AllClienteInformation';
   private urlClienteCantegoria: string = 'http://localhost:8000/getAllCategoryNames';
   private urlClienteMetodo: string = 'http://localhost:8000/getAllCategoriesDeliveryMethodNames';
-  private urlAdd: string = 'http://localhost:4000/api/add';
+  private urlInventario: string = 'http://localhost:8000/getAllInventaryInformation';
   private urlFind: string = 'http://localhost:4000/api/find';
   constructor(
     private _http: HttpClient
@@ -32,6 +33,12 @@ export class Api {
   }
   getClientesMetodo(): Observable<ClienteMetodo> {
     return this._http.get<ClienteMetodo>(this.urlClienteMetodo);
+  }
+  getInventario(): Observable<Inventario> {
+    return this._http.get<Inventario>(this.urlInventario);
+  }
+  getProveedores(): Observable<Inventario> {
+    return this._http.get<Inventario>(this.urlInventario);
   }
 /*
   add(cliente: Telefono):Observable<Response>{

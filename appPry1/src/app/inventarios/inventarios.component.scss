@@ -40,9 +40,11 @@ mat-form-field
 }
 .tabla
 {
+    overflow: auto;
     position: relative;
     top: 100px;
     width: 80%;
+    height: 500px;
     left: 9%;
     background: green($color: #000000);
     border: whitesmoke 1px solid;

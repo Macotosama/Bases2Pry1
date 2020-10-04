@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
+import { Inventario } from '../servicios/modelos/inventario';
 
 @Component({
   selector: 'app-dialog-inventario',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogInventarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DialogInventarioComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Inventario) {}
 
   ngOnInit(): void {
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogInventarioComponent } from '../dialog-inventario/dialog-inventario.component';
+import { Api } from '../servicios/api';
+import { Inventario } from '../servicios/modelos/inventario';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   trigger,
@@ -40,16 +42,25 @@ import {
 })
 export class InventariosComponent implements OnInit {
   public columnas = ['nombre', 'categoria', 'metodo'];
-  public contenidos = [1, 2, 3];
+  public contenidos : Inventario;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private api: Api) { }
 
   ngOnInit(): void {
+    this.getinventario();
   }
 
-  dialogClientes() {
+  getinventario() {
+    this.api.getInventario().subscribe(Inventario => {
+      this.contenidos = Inventario;
+    });
+  }
+
+  dialogClientes(inventario: Inventario) {
     const dialogRef = this.dialog.open(DialogInventarioComponent, {
-      width: '800px', height: '550px'
+      width: '800px', height: '550px',
+      data: inventario
     })
   }
 }

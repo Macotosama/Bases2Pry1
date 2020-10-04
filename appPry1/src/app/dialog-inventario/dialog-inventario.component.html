@@ -3,59 +3,59 @@
         <table class="egt">
             <tr>
                 <td>Nombre del producto: </td>
-                <td class="colum">Celda 2</td>
+                <td class="colum">{{data.StockItemName}}</td>
             </tr>
             <tr>
                 <td>Proveedor: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.SupplierName}}</td>      
             </tr>
             <tr>
                 <td>Color: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.ColorName == null? "No encontrado" : data.ColorName}}</td>      
             </tr>
             <tr>
                 <td>Unidad de empaquetamiento: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.PackageTypeName[0]}}</td>      
             </tr>
             <tr>
                 <td>Empaquetamiento: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.PackageTypeName[1]}}</td>      
             </tr>
             <tr>
                 <td>Precio de venta: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.UnitPrice}}</td>      
             </tr>
             <tr>
                 <td>Peso: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.TypicalWeightPerUnit}}</td>      
             </tr>
             <tr>
                 <td>Palabras claves: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.SearchDetails}}</td>      
             </tr>
             <tr>
                 <td>Cantidad de empaquetamiento : </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.QuantityPerOuter}}</td>      
             </tr>
             <tr>
                 <td>Marca: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum"> {{data.Brand == null? "No encontrado" : data.Brand}} </td>      
             </tr>
             <tr>
                 <td>Tallas/tamaño: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.Size}}</td>      
             </tr>
             <tr>
                 <td>Impuesto: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.TaxRate}}</td>      
             </tr>
             <tr>
                 <td>Precio unitario: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.UnitPrice}}</td>      
             </tr>
             <tr>
                 <td>Ubicación: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.BinLocation}}</td>      
             </tr>
         </table>
     </div>

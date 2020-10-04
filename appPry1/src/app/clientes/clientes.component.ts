@@ -47,6 +47,9 @@ export class ClientesComponent implements OnInit {
   public contenidos : Cliente;
   public categorias : ClientesCategorias;
   public metodos : ClienteMetodo;
+  public nombre : string;
+  public categoria : string;
+  public metodo : string;
 
   constructor(public dialog: MatDialog,
     private api: Api) {

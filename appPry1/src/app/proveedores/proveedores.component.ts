@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogProveedorComponent } from '../dialog-proveedor/dialog-proveedor.component';
+import { Api } from '../servicios/api';
+import { Proveedor } from '../servicios/modelos/proveedor';
+import { DialogClienteComponent } from '../dialog-cliente/dialog-cliente.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   trigger,
@@ -40,16 +42,23 @@ import {
 })
 export class ProveedoresComponent implements OnInit {
   public columnas = ['nombre', 'categoria', 'metodo'];
-  public contenidos = [1, 2, 3];
+  public contenidos : Proveedor;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private api: Api) { }
 
   ngOnInit(): void {
+    this.getproveedor();
   }
 
-  dialogClientes() {
-    const dialogRef = this.dialog.open(DialogProveedorComponent, {
-      width: '800px', height: '550px'
+  getproveedor() {
+    this.api.getProveedores().subscribe(Proveedor => {
+      this.contenidos = Proveedor;
+    });
+  }
+
+  dialogClientes(proveedor: Proveedor) {
+    const dialogRef = this.dialog.open(DialogClienteComponent, {
+      width: '800px', height: '550px', data: proveedor
     })
   }
   

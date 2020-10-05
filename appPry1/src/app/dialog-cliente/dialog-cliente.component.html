@@ -3,68 +3,66 @@
         <table class="egt">
             <tr>
                 <td>Código de proveedor: </td>
-                <td class="colum">Celda 2</td>
+                <td class="colum">{{data.SupplierID}}</td>
             </tr>
             <tr>
                 <td>Nombre del proveedor: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.SupplierName}}</td>      
             </tr>
             <tr>
                 <td>Categoría: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.SupplierCategoryName}}</td>      
             </tr>
             <tr>
                 <td>Contacto primario: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.contac1}}</td>      
             </tr>
             <tr>
                 <td>Contacto alternativo: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.contac2}}</td>      
             </tr>
             <tr>
                 <td>Métodos de entrega: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.DeliveryMethodName}}</td>      
             </tr>
             <tr>
                 <td>Ciudad de entrega: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.CityName}}</td>      
             </tr>
             <tr>
                 <td>Código postal: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.PostalCityID}}</td>      
             </tr>
             <tr>
                 <td>Teléfono: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.PhoneNumber}}</td>      
             </tr>
             <tr>
                 <td>Fax: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.FaxNumber}}</td>      
             </tr>
             <tr>
                 <td>Días de gracia para pagar: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.PaymentDays}}</td>      
             </tr>
             <tr>
                 <td>Sitio wep: </td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.WebsiteURL}}</td>      
             </tr>
             <tr>
                 <td>Nombre de banco</td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.BankAccountName}}/td>      
             </tr>
             <tr>
                 <td>Número de cuenta corriente</td>
-                <td class="colum">Celda 5</td>      
-            </tr>
-            <tr>
-                <td>Dirección</td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.BankAccountNumber}}</td>      
             </tr>
         </table>
     </div>
     <br><br><br>
     <div class="mapin">
-        <google-map></google-map>
+        <google-map [center]="position">
+            <map-marker [position]="position"></map-marker>
+        </google-map>
     </div>
 </div>

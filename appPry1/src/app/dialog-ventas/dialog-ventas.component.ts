@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Ventas } from "../servicios/modelos/ventas";
+import { MatDialogRef, MAT_DIALOG_DATA, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-ventas',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog-ventas.component.scss']
 })
 export class DialogVentasComponent implements OnInit {
-  public columnas = ['nombre', 'categoria', 'metodo'];
-  public contenidos = [1, 2, 3];
+  public contenidos: Ventas;
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DialogVentasComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Ventas) {
+     }
 
   ngOnInit(): void {
   }

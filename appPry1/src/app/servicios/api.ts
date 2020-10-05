@@ -5,6 +5,8 @@ import { Cliente } from '../servicios/modelos/cliente';
 import { ClientesCategorias } from '../servicios/modelos/clientesCategorias';
 import { ClienteMetodo } from '../servicios/modelos/clientesMetodos';
 import { Inventario } from '../servicios/modelos/inventario';
+import { Proveedor } from './modelos/proveedor';
+import { Ventas } from './modelos/ventas';
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -20,7 +22,8 @@ export class Api {
   private urlClienteCantegoria: string = 'http://localhost:8000/getAllCategoryNames';
   private urlClienteMetodo: string = 'http://localhost:8000/getAllCategoriesDeliveryMethodNames';
   private urlInventario: string = 'http://localhost:8000/getAllInventaryInformation';
-  private urlFind: string = 'http://localhost:4000/api/find';
+  private urlProveedores: string = 'http://localhost:8000/getAllSupierInformation';
+  private urlVentas: string = 'http://localhost:8000/getAllInvoicesInformation';
   constructor(
     private _http: HttpClient
   ){}
@@ -37,8 +40,11 @@ export class Api {
   getInventario(): Observable<Inventario> {
     return this._http.get<Inventario>(this.urlInventario);
   }
-  getProveedores(): Observable<Inventario> {
-    return this._http.get<Inventario>(this.urlInventario);
+  getProveedores(): Observable<Proveedor> {
+    return this._http.get<Proveedor>(this.urlProveedores);
+  }
+  getVentas(): Observable<Ventas> {
+    return this._http.get<Ventas>(this.urlVentas);
   }
 /*
   add(cliente: Telefono):Observable<Response>{

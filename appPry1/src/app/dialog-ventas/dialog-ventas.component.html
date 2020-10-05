@@ -3,11 +3,11 @@
         <table>
             <tr>
                 <td class="etiqueta">N° de factura:</td>
-                <td class="colum">Celda 2</td>
+                <td class="colum">{{data.InvoiceID}}</td>
             </tr>
             <tr>
                 <td>Fecha:</td>
-                <td class="colum">Celda 5</td>      
+                <td class="colum">{{data.Date}}</td>      
             </tr>
         </table>
     </div>
@@ -16,15 +16,15 @@
         <table>
             <tr>
                 <td class="etiqueta">Cliente:</td>
-                <td class="colum1">Celda 2</td>
+                <td class="colum1">{{data.CustomerName}}</td>
             </tr>
             <tr>
                 <td class="etiqueta">Método de entrega:</td>
-                <td class="colum1">Celda 5</td>      
+                <td class="colum1">{{data.DeliveryMethodName}}</td>
             </tr>
             <tr>
                 <td class="etiqueta">N° de orden:</td>
-                <td class="colum1">Celda 5</td>      
+                <td class="colum1">XD</td>      
             </tr>
         </table>
     </div>
@@ -32,43 +32,44 @@
         <table>
             <tr>
                 <td class="etiqueta">Contacto:</td>
-                <td class="colum1">Celda 5</td>      
+                <td class="colum1">{{data.Contact}}</td>      
             </tr>
             <tr>
                 <td class="etiqueta">Vendedor:</td>
-                <td class="colum1">Celda 5</td>      
+                <td class="colum1">{{data.SalesPerson}}</td>      
             </tr>
             <tr>
                 <td class="etiqueta">Instrucciones de entrega:</td>
-                <td class="colum1">Celda 5</td>      
+                <td class="colum1">{{data.DeliveryInstructions}}</td>      
             </tr>
         </table>
     </div>
+    <hr>
     <div class="blaque3">
         <table class="tabla3">
             <tr>
                 <td class="etiqueta">Producto:</td>
-                <td class="colum2">Celda 5</td>      
+                <td class="colum2">{{data.StockItemName}}</td>      
             </tr>
             <tr>
                 <td class="etiqueta">Cantidad:</td>
-                <td class="colum2">Celda 5</td>      
+                <td class="colum2">{{data.Quantity}}</td>      
             </tr>
             <tr>
                 <td class="etiqueta">Precio por unidad:</td>
-                <td class="colum2">Celda 5</td>      
+                <td class="colum2">{{data.UnitPrice}}</td>      
             </tr>
             <tr>
                 <td class="etiqueta">Impuesto:</td>
-                <td class="colum2">Celda 5</td>      
+                <td class="colum2">{{data.TaxRate}}%</td>      
             </tr>
             <tr>
                 <td class="etiqueta">Monto del impuesto:</td>
-                <td class="colum2">Celda 5</td>      
+                <td class="colum2">{{data.TaxAmount}}%</td>      
             </tr>
             <tr>
                 <td class="etiqueta">Total por línea:</td>
-                <td class="colum2">Celda 5</td>      
+                <td class="colum2">{{data.LineProfit}}</td>      
             </tr>
         </table>
     </div>

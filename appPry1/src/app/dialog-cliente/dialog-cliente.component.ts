@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
-import { Cliente } from '../servicios/modelos/cliente';
+import { Proveedor } from '../servicios/modelos/proveedor'
 
 @Component({
   selector: 'app-dialog-cliente',
@@ -8,11 +8,12 @@ import { Cliente } from '../servicios/modelos/cliente';
   styleUrls: ['./dialog-cliente.component.scss']
 })
 export class DialogClienteComponent implements OnInit {
-  public columnas = ['nombre', 'categoria', 'metodo'];
-  public contenidos = [1, 2, 3];
+  public position;
 
   constructor(public dialogRef: MatDialogRef<DialogClienteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Cliente) { }
+    @Inject(MAT_DIALOG_DATA) public data: Proveedor) {
+      this.position = {lat: data.Latitude, lng: data.Longitude}
+     }
 
   ngOnInit(): void {
   }

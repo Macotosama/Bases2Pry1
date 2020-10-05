@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogVentasComponent } from '../dialog-ventas/dialog-ventas.component'
+import { DialogVentasComponent } from '../dialog-ventas/dialog-ventas.component';
+import { Api } from '../servicios/api';
+import { Ventas } from '../servicios/modelos/ventas';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   trigger,
@@ -40,16 +42,25 @@ import {
 })
 export class VentasComponent implements OnInit {
   public columnas = ['factura', 'fecha', 'cliente', 'metodo', 'monto'];
-  public contenidos = [1, 2, 3, 4, 5];
+  public contenidos : Ventas;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private api: Api) { }
 
   ngOnInit(): void {
+    this.getventas();
   }
 
-  dialogClientes() {
+  getventas() {
+    this.api.getVentas().subscribe(Ventas => {
+      console.log(Ventas);
+      this.contenidos = Ventas;
+    });
+  }
+
+  dialogClientes(ventas: Ventas) {
     const dialogRef = this.dialog.open(DialogVentasComponent, {
-      width: '800px', height: '550px'
+      width: '800px', height: '550px', data: ventas
     })
   }
 

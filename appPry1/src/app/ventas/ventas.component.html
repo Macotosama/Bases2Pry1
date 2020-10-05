@@ -11,27 +11,27 @@
         <mat-table [dataSource]="contenidos" class="tabla">
             <ng-container matColumnDef="factura">
             <mat-header-cell *matHeaderCellDef>N° de factura</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes(element)"> {{element.InvoiceID}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="fecha">
             <mat-header-cell *matHeaderCellDef> Fecha</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes(element)"> {{element.Date}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="cliente">
             <mat-header-cell *matHeaderCellDef> Cliente</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes(element)"> {{element.CustomerName}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="metodo">
                 <mat-header-cell *matHeaderCellDef> Método de pago</mat-header-cell>
-                <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+                <mat-cell *matCellDef="let element" (click)="dialogClientes(element)"> {{element.PaymentMethodName}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="monto">
                 <mat-header-cell *matHeaderCellDef> Monto</mat-header-cell>
-                <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+                <mat-cell *matCellDef="let element" (click)="dialogClientes(element)"> {{element.TaxAmount}}% </mat-cell>
             </ng-container>
         
             <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>

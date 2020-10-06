@@ -60,17 +60,17 @@
         <mat-table [dataSource]="clientes" class="tabla2">
             <ng-container matColumnDef="nombre">
             <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.CustomerName}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.CustomerName}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="categoria">
             <mat-header-cell *matHeaderCellDef> Categoría</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.CustomerCategoryName}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.CustomerCategoryName}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="metodo">
             <mat-header-cell *matHeaderCellDef> Vendido</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.Quantity}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.Quantity}} </mat-cell>
             </ng-container>
         
             <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
@@ -101,7 +101,7 @@
     </div>
     <div class="conter3">
         <mat-form-field class="fecha2">
-          <mat-label>Choose a date</mat-label>
+          <mat-label>Fecha 1</mat-label>
         <!-- #docregion toggle -->
           <input matInput [matDatepicker]="myDatePicker2" placeholder="DD/MM/YYYY" [(ngModel)]="fecha1Grafica2">
           <mat-datepicker-toggle matSuffix [for]="myDatePicker2"></mat-datepicker-toggle>
@@ -123,9 +123,9 @@
       </div>
       <div class="conter4">
         <mat-form-field class="fecha2">
-          <mat-label>Choose a date</mat-label>
+          <mat-label>Fecha 1</mat-label>
         <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="myDatePicker3" placeholder="DD/MM/YYYY" [(ngModel)]="fecha2Grafica3">
+          <input matInput [matDatepicker]="myDatePicker3" placeholder="DD/MM/YYYY" [(ngModel)]="fecha1Grafica3">
           <mat-datepicker-toggle matSuffix [for]="myDatePicker3"></mat-datepicker-toggle>
           <mat-datepicker #myDatePicker3></mat-datepicker>
         <!-- #enddocregion toggle -->
@@ -138,7 +138,7 @@
           <mat-datepicker #myDatePicker5></mat-datepicker>
         <!-- #enddocregion toggle -->
         </mat-form-field>
-        <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>
+        <button mat-stroked-button class="filtro" @enterState2 (click)="filGrafic3()">Filtrar</button>
       </div>
       <div class="canvas3">
           <canvas width="500" height="200" id="ventas3"></canvas>

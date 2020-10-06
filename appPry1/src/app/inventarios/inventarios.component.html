@@ -1,11 +1,22 @@
 <div class="mainFondo">
     <div>
-        <h1 class="titulo" @enterState>Inventarios</h1>
+        <h1 class="titulo" @enterState>Inventario</h1>
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>Nombre</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="nombre">
         </mat-form-field>
-        <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>
+        <mat-form-field appearance="fill" @enterState2>
+            <mat-label>Grupo</mat-label>
+            <mat-select id="cate" [(ngModel)]="grupo">
+              <mat-option [value]="" class="empty-select"></mat-option>
+              <mat-option [value]="item.StockGroupName"class="not-empty-select" *ngFor="let item of grupos">{{item.StockGroupName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" @enterState2>
+            <mat-label>Cantidad</mat-label>
+            <input matInput [(ngModel)]="cantidad">
+        </mat-form-field>
+        <button mat-stroked-button class="filtro" @enterState2 (click)="getclienteFill()">Filtrar</button>
     </div>
     <div>
         <mat-table [dataSource]="contenidos" class="tabla">
@@ -15,7 +26,7 @@
             </ng-container>
         
             <ng-container matColumnDef="categoria">
-            <mat-header-cell *matHeaderCellDef> Categoría</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> Grupo</mat-header-cell>
             <mat-cell *matCellDef="let element" (click)="dialogClientes(element)"> {{element.StockGroupName == null? "No encontrado" : element.StockGroupName}} </mat-cell>
             </ng-container>
         

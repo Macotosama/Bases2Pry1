@@ -43,12 +43,42 @@ import {
 export class InventariosComponent implements OnInit {
   public columnas = ['nombre', 'categoria', 'metodo'];
   public contenidos : Inventario;
+  public grupos : any;
+  public grupo : string = '';
+  public nombre : string;
+  public cantidad : number;
 
   constructor(public dialog: MatDialog,
     private api: Api) { }
 
   ngOnInit(): void {
     this.getinventario();
+    this.getgrupos();
+  }
+
+  getclienteFill() {
+    if (this.nombre == null) {
+      this.nombre ='XD';
+    }
+    if (this.grupo == '') {
+      this.grupo = 'XD';
+    }
+    if (this.cantidad == null) {
+      this.cantidad = 0;
+    }
+    console.log(this.nombre)
+    this.api.getInventarioFiltro(this.nombre, this.grupo, this.cantidad).subscribe(Inventario => {
+      this.contenidos = Inventario;
+    });
+    this.nombre = null;
+    this.grupo = '';
+    this.cantidad = null;
+  }
+
+  getgrupos() {
+    this.api.getGrupos().subscribe(Response => {
+      this.grupos = Response;
+    });
   }
 
   getinventario() {

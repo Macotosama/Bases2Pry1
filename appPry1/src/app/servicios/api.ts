@@ -11,6 +11,7 @@ import { ProveedoresTops } from '../servicios/modelos/proveedorestops';
 import { ClientesTop } from '../servicios/modelos/clientestop';
 import { TopProductos } from '../servicios/modelos/topproductos';
 import { TopCliente } from '../servicios/modelos/topcliente';
+import { TopProveedor } from '../servicios/modelos/topproveedor';
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -25,6 +26,7 @@ export class Api {
   private url: string = 'http://localhost:8000/AllClienteInformation';
   private urlClienteCantegoria: string = 'http://localhost:8000/getAllCategoryNames';
   private urlClienteMetodo: string = 'http://localhost:8000/getAllCategoriesDeliveryMethodNames';
+  private urlClienteFiltro: string = 'http://localhost:8000/getAllClienteInformationFilter';
   private urlInventario: string = 'http://localhost:8000/getAllInventaryInformation';
   private urlProveedores: string = 'http://localhost:8000/getAllSupierInformation';
   private urlVentas: string = 'http://localhost:8000/getAllInvoicesInformation';
@@ -36,12 +38,25 @@ export class Api {
   private urlClientesPromedio: string = 'http://localhost:8000/getAVGExpensiveCustomer';
   private urlTopProductos: string = 'http://localhost:8000/getTopProductsFilter';
   private urlTopClientes: string = 'http://localhost:8000/getMaxCustomesInvoices';
+  private urlTopProveedores: string = 'http://localhost:8000/getAllClienteInformationFilter';
+  private urlCategoriasProveedores: string ='http://localhost:8000/getAllSupplierCategories';
+  private urlProveedoreFiltros: string ='http://localhost:8000/getAllSuplierInformationFilter';
+  private urlGrupos: string ='http://localhost:8000/getAllGrups';
+  private urlInventarioFiltros: string ='http://localhost:8000/getAllInventaryInformationFilter';
   constructor(
     private _http: HttpClient
   ){}
-
+  getInventarioFiltro(filNombre: string, filgrupo: string, filCantidad: number): Observable<Inventario> {
+    return this._http.get<Inventario>(`${this.urlClienteFiltro}/${filNombre}/${filgrupo}/${filCantidad}`, httpOption);
+  }
+  getGrupos(): Observable<Response> {
+    return this._http.get<Response>(this.urlGrupos);
+  }
   getClientes(): Observable<Cliente> {
     return this._http.get<Cliente>(this.url);
+  }
+  getClienteFiltro(filNombre: string, filCategoria: string, filMetodo: string): Observable<Cliente> {
+    return this._http.get<Cliente>(`${this.urlClienteFiltro}/${filNombre}/${filCategoria}/${filMetodo}`, httpOption);
   }
   getClientesCategorias(): Observable<ClientesCategorias> {
     return this._http.get<ClientesCategorias>(this.urlClienteCantegoria);
@@ -52,8 +67,14 @@ export class Api {
   getInventario(): Observable<Inventario> {
     return this._http.get<Inventario>(this.urlInventario);
   }
+  getProveedorFiltro(filNombre: string, filCategoria: string, filMetodo: string): Observable<Proveedor> {
+    return this._http.get<Proveedor>(`${this.urlProveedoreFiltros}/${filNombre}/${filCategoria}/${filMetodo}`, httpOption);
+  }
   getProveedores(): Observable<Proveedor> {
     return this._http.get<Proveedor>(this.urlProveedores);
+  }
+  getProveedoresCategorias(): Observable<Response> {
+    return this._http.get<Response>(this.urlCategoriasProveedores);
   }
   getVentas(): Observable<Ventas> {
     return this._http.get<Ventas>(this.urlVentas);
@@ -76,11 +97,14 @@ export class Api {
   getFillClientesPromedio(nombre: string): Observable<ClientesTop> {
     return this._http.get<ClientesTop>(`${this.urlClientesPromedio}/${nombre}`, httpOption);
   }
-  getTopProductos(fecha1: string, fecha2: string): Observable<TopProductos> {
-    return this._http.get<TopProductos>(`${this.urlTopProductos}/${fecha1}/${fecha2}`, httpOption);
+  getTopProductos(fecha1: string, fecha2: string): Observable<Response> {
+    return this._http.get<Response>(`${this.urlTopProductos}/${fecha1}/${fecha2}`, httpOption);
   }
-  getTopClientes(fecha1: string, fecha2: string): Observable<TopCliente> {
-    return this._http.get<TopCliente>(`${this.urlTopClientes}/${fecha1}/${fecha2}`, httpOption);
+  getTopClientes(fecha1: string, fecha2: string): Observable<Response> {
+    return this._http.get<Response>(`${this.urlTopClientes}/${fecha1}/${fecha2}`, httpOption);
+  }
+  getTopProveedores(fecha1: string, fecha2: string): Observable<Response> {
+    return this._http.get<Response>(`${this.urlTopProveedores}/${fecha1}/${fecha2}`, httpOption);
   }
 /*
   add(cliente: Telefono):Observable<Response>{

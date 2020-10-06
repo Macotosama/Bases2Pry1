@@ -7,19 +7,19 @@
         </mat-form-field>
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>Categoría</mat-label>
-            <mat-select  [(ngModel)]="categoria">
-              <mat-option value="" class="empty-select"></mat-option>
-              <mat-option value="item.CustomerCategoryName" class="not-empty-select" *ngFor="let item of categorias">{{item.CustomerCategoryName}}</mat-option>
+            <mat-select id="cate" [(ngModel)]="categoria">
+              <mat-option [value]="" class="empty-select"></mat-option>
+              <mat-option [value]="item.CustomerCategoryName"class="not-empty-select" *ngFor="let item of categorias">{{item.CustomerCategoryName}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="fill" @enterState2>
             <mat-label>Método de entrega</mat-label>
             <mat-select [(ngModel)]="metodo">
-              <mat-option value="" class="empty-select"></mat-option>
-              <mat-option value="item.DeliveryMethodName" class="not-empty-select" *ngFor="let item of metodos">{{item.DeliveryMethodName}}</mat-option>
+              <mat-option [value]="" class="empty-select"></mat-option>
+              <mat-option [value]="item.DeliveryMethodName" class="not-empty-select" *ngFor="let item of metodos">{{item.DeliveryMethodName}}</mat-option>
             </mat-select>
           </mat-form-field>
-        <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>
+        <button mat-stroked-button class="filtro" @enterState2 (click)="getclienteFill()">Filtrar</button>
     </div>
     <div>
         <mat-table [dataSource]="contenidos" class="tabla">

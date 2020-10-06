@@ -4,6 +4,7 @@ import { Api } from '../servicios/api';
 import { Cliente } from '../servicios/modelos/cliente';
 import { ClientesCategorias } from '../servicios/modelos/clientesCategorias';
 import { ClienteMetodo } from '../servicios/modelos/clientesMetodos';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import {
   trigger,
@@ -48,8 +49,8 @@ export class ClientesComponent implements OnInit {
   public categorias : ClientesCategorias;
   public metodos : ClienteMetodo;
   public nombre : string;
-  public categoria : string;
-  public metodo : string;
+  public categoria : string = '';
+  public metodo : string = '';
 
   constructor(public dialog: MatDialog,
     private api: Api) {
@@ -60,7 +61,29 @@ export class ClientesComponent implements OnInit {
     this.getclientecategoria();
     this.getclientemetodo();
   }
+
+  cambioCategoria(cate: string) {
+    this.categoria = cate;
+  }
   
+  getclienteFill() {
+    if (this.nombre == null) {
+      this.nombre ='XD';
+    }
+    if (this.categoria == '') {
+      this.categoria = 'XD';
+    }
+    if (this.metodo == '') {
+      this.metodo = 'XD';
+    }
+    this.api.getClienteFiltro(this.nombre, this.categoria, this.metodo).subscribe(Cliente => {
+      this.contenidos = Cliente;
+    });
+    this.nombre = null;
+    this.categoria = '';
+    this.metodo = '';
+  }
+
   getcliente() {
     this.api.getClientes().subscribe(Cliente => {
       this.contenidos = Cliente;

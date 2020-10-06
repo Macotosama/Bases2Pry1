@@ -2,7 +2,15 @@
     <div>
         <h1 class="titulo" @enterState>Ventas</h1>
         <mat-form-field appearance="fill" @enterState2>
-            <mat-label>Nombre</mat-label>
+            <mat-label>N° de factura</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" @enterState2>
+            <mat-label>Cliente</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" @enterState2>
+            <mat-label>Método de pago</mat-label>
             <input matInput>
         </mat-form-field>
         <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>

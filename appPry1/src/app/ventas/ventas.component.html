@@ -3,17 +3,17 @@
         <h1 class="titulo" @enterState>Ventas</h1>
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>N° de factura</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="venta">
         </mat-form-field>
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>Cliente</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="cliente">
         </mat-form-field>
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>Método de pago</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="metodo">
         </mat-form-field>
-        <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>
+        <button mat-stroked-button class="filtro" @enterState2 (click)="getventasFill()">Filtrar</button>
     </div>
     <div>
         <mat-table [dataSource]="contenidos" class="tabla">

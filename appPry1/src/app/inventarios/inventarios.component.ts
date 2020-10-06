@@ -66,7 +66,6 @@ export class InventariosComponent implements OnInit {
     if (this.cantidad == null) {
       this.cantidad = 0;
     }
-    console.log(this.nombre)
     this.api.getInventarioFiltro(this.nombre, this.grupo, this.cantidad).subscribe(Inventario => {
       this.contenidos = Inventario;
     });

@@ -43,11 +43,15 @@ export class Api {
   private urlProveedoreFiltros: string ='http://localhost:8000/getAllSuplierInformationFilter';
   private urlGrupos: string ='http://localhost:8000/getAllGrups';
   private urlInventarioFiltros: string ='http://localhost:8000/getAllInventaryInformationFilter';
+  private urlVentasFiltros: string ='http://localhost:8000/getAllInvoicesInformationFilter';
   constructor(
     private _http: HttpClient
   ){}
+  getVentaFiltro(filNombre: number, filgrupo: string, filCantidad: string): Observable<Ventas> {
+    return this._http.get<Ventas>(`${this.urlVentasFiltros}/${filNombre}/${filgrupo}/${filCantidad}`, httpOption);
+  }
   getInventarioFiltro(filNombre: string, filgrupo: string, filCantidad: number): Observable<Inventario> {
-    return this._http.get<Inventario>(`${this.urlClienteFiltro}/${filNombre}/${filgrupo}/${filCantidad}`, httpOption);
+    return this._http.get<Inventario>(`${this.urlInventarioFiltros}/${filNombre}/${filgrupo}/${filCantidad}`, httpOption);
   }
   getGrupos(): Observable<Response> {
     return this._http.get<Response>(this.urlGrupos);

@@ -43,12 +43,34 @@ import {
 export class VentasComponent implements OnInit {
   public columnas = ['factura', 'fecha', 'cliente', 'metodo', 'monto'];
   public contenidos : Ventas;
+  public venta: number;
+  public cliente: string;
+  public metodo: string;
 
   constructor(public dialog: MatDialog,
     private api: Api) { }
 
   ngOnInit(): void {
     this.getventas();
+  }
+
+  getventasFill() {
+    if (this.venta == null) {
+      this.venta = 0;
+    }
+    if (this.cliente == null) {
+      this.cliente = 'XD';
+    }
+    if (this.metodo == null) {
+      this.metodo = 'XD';
+    }
+    console.log(this.cliente)
+    this.api.getVentaFiltro(this.venta, this.cliente, this.metodo).subscribe(Ventas => {
+      this.contenidos = Ventas;
+    });
+    this.venta = null;
+    this.cliente = null;
+    this.metodo = null;
   }
 
   getventas() {

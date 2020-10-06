@@ -3,53 +3,74 @@
         <h1 class="titulo" @enterState>Estadísticas</h1>
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>Proveedor</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="filProvee">
         </mat-form-field>
-        <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>
+        <mat-form-field appearance="fill" @enterState2>
+          <mat-label>Categoría</mat-label>
+          <mat-select  [(ngModel)]="filProveedor">
+            <mat-option value="altos" class="empty-select">Montos más altos</mat-option>
+            <mat-option value="bajo" class="not-empty-select">Montos más bajo</mat-option>
+            <mat-option value="promedio" class="not-empty-select">Compra promedio</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-stroked-button class="filtro" @enterState2 (click)="filProveedores()">Filtrar</button>
     </div>
     <div>
-        <mat-table [dataSource]="contenidos" class="tabla">
-            <ng-container matColumnDef="nombre">
-            <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+        <mat-table [dataSource]="proveedores" class="tabla">
+            <ng-container matColumnDef="Identificador">
+            <mat-header-cell *matHeaderCellDef>Identificador</mat-header-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.SupplierID}} </mat-cell>
             </ng-container>
         
-            <ng-container matColumnDef="categoria">
-            <mat-header-cell *matHeaderCellDef> Categoría</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            <ng-container matColumnDef="Nombre">
+            <mat-header-cell *matHeaderCellDef> Nombre</mat-header-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.SupplierName}} </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="Categoría">
+              <mat-header-cell *matHeaderCellDef> Categoría</mat-header-cell>
+              <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.SupplierCategoryName}} </mat-cell>
             </ng-container>
         
-            <ng-container matColumnDef="metodo">
-            <mat-header-cell *matHeaderCellDef> Método de entrega</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            <ng-container matColumnDef="Compra">
+            <mat-header-cell *matHeaderCellDef> Compra</mat-header-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.Quantity}} </mat-cell>
             </ng-container>
         
-            <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+            <mat-header-row *matHeaderRowDef="columnasProveedor"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnasProveedor"></mat-row>
         </mat-table>
     </div>
     <div class="conter1">
         <mat-form-field appearance="fill" @enterState2>
             <mat-label>Cliente</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="filClient">
         </mat-form-field>
-        <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>
+        <mat-form-field appearance="fill" @enterState2>
+          <mat-label>Categoría</mat-label>
+          <mat-select  [(ngModel)]="filCliente">
+            <mat-option value="altos" class="empty-select">Montos más altos</mat-option>
+            <mat-option value="bajo" class="not-empty-select">Montos más bajo</mat-option>
+            <mat-option value="promedio" class="not-empty-select">Compra promedio</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-stroked-button class="filtro" @enterState2 (click)="filClientes()">Filtrar</button>
     </div>
     <div>
-        <mat-table [dataSource]="contenidos" class="tabla2">
+        <mat-table [dataSource]="clientes" class="tabla2">
             <ng-container matColumnDef="nombre">
             <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.CustomerName}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="categoria">
             <mat-header-cell *matHeaderCellDef> Categoría</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.CustomerCategoryName}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="metodo">
-            <mat-header-cell *matHeaderCellDef> Método de entrega</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef> Vendido</mat-header-cell>
+            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.Quantity}} </mat-cell>
             </ng-container>
         
             <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
@@ -58,14 +79,22 @@
     </div>
     <div class="conter2">
       <mat-form-field class="fecha1">
-        <mat-label>Choose a date</mat-label>
+        <mat-label>Fecha 1</mat-label>
       <!-- #docregion toggle -->
-        <input matInput [matDatepicker]="myDatePicker">
+        <input matInput [matDatepicker]="myDatePicker"  placeholder="DD/MM/YYYY" [(ngModel)]="fecha1Grafica1">
         <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #myDatePicker></mat-datepicker>
       <!-- #enddocregion toggle -->
       </mat-form-field>
-      <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>
+      <mat-form-field class="fecha1">
+        <mat-label>Fecha 2</mat-label>
+      <!-- #docregion toggle -->
+        <input matInput [matDatepicker]="myDatePicker1"  placeholder="DD/MM/YYYY" [(ngModel)]="fecha2Grafica1">
+        <mat-datepicker-toggle matSuffix [for]="myDatePicker1"></mat-datepicker-toggle>
+        <mat-datepicker #myDatePicker1></mat-datepicker>
+      <!-- #enddocregion toggle -->
+      </mat-form-field>
+      <button mat-stroked-button class="filtro" @enterState2 (click)="filGrafic1()">Filtrar</button>
     </div>
     <div class="canvas1">
         <canvas width="500" height="200" id="ventas"></canvas>
@@ -74,12 +103,20 @@
         <mat-form-field class="fecha2">
           <mat-label>Choose a date</mat-label>
         <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="myDatePicker">
-          <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
-          <mat-datepicker #myDatePicker></mat-datepicker>
+          <input matInput [matDatepicker]="myDatePicker2" placeholder="DD/MM/YYYY" [(ngModel)]="fecha1Grafica2">
+          <mat-datepicker-toggle matSuffix [for]="myDatePicker2"></mat-datepicker-toggle>
+          <mat-datepicker #myDatePicker2></mat-datepicker>
         <!-- #enddocregion toggle -->
         </mat-form-field>
-        <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>
+        <mat-form-field class="fecha4">
+          <mat-label>Fecha 2</mat-label>
+        <!-- #docregion toggle -->
+          <input matInput [matDatepicker]="myDatePicker4"  placeholder="DD/MM/YYYY" [(ngModel)]="fecha2Grafica2">
+          <mat-datepicker-toggle matSuffix [for]="myDatePicker4"></mat-datepicker-toggle>
+          <mat-datepicker #myDatePicker4></mat-datepicker>
+        <!-- #enddocregion toggle -->
+        </mat-form-field>
+        <button mat-stroked-button class="filtro" @enterState2 (click)="filGrafic2()">Filtrar</button>
       </div>
       <div class="canvas2">
           <canvas width="500" height="200" id="ventas2"></canvas>
@@ -88,9 +125,17 @@
         <mat-form-field class="fecha2">
           <mat-label>Choose a date</mat-label>
         <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="myDatePicker">
-          <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
-          <mat-datepicker #myDatePicker></mat-datepicker>
+          <input matInput [matDatepicker]="myDatePicker3" placeholder="DD/MM/YYYY" [(ngModel)]="fecha2Grafica3">
+          <mat-datepicker-toggle matSuffix [for]="myDatePicker3"></mat-datepicker-toggle>
+          <mat-datepicker #myDatePicker3></mat-datepicker>
+        <!-- #enddocregion toggle -->
+        </mat-form-field>
+        <mat-form-field class="fecha1">
+        <mat-label>Fecha 2</mat-label>
+        <!-- #docregion toggle -->
+          <input matInput [matDatepicker]="myDatePicker5"  placeholder="DD/MM/YYYY" [(ngModel)]="fecha2Grafica3">
+          <mat-datepicker-toggle matSuffix [for]="myDatePicker5"></mat-datepicker-toggle>
+          <mat-datepicker #myDatePicker5></mat-datepicker>
         <!-- #enddocregion toggle -->
         </mat-form-field>
         <button mat-stroked-button class="filtro" @enterState2>Filtrar</button>

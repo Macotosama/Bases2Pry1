@@ -53,7 +53,6 @@ export class VentasComponent implements OnInit {
 
   getventas() {
     this.api.getVentas().subscribe(Ventas => {
-      console.log(Ventas);
       this.contenidos = Ventas;
     });
   }

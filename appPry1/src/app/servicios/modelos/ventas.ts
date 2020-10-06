@@ -14,4 +14,5 @@ export interface Ventas {
     TaxRate: number;
     TaxAmount: number;
     LineProfit: number;
+    OrderID: number;
 }

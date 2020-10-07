@@ -60,13 +60,13 @@ export class ProveedoresComponent implements OnInit {
 
   getproveedorFill() {
     if (this.nombre == null) {
-      this.nombre ='XD';
+      this.nombre = null;
     }
     if (this.categoria == '') {
-      this.categoria = 'XD';
+      this.categoria = null;
     }
     if (this.metodo == '') {
-      this.metodo = 'XD';
+      this.metodo = null;
     }
     console.log(this.nombre)
     this.api.getProveedorFiltro(this.nombre, this.categoria, this.metodo).subscribe(Proveedor => {

@@ -58,10 +58,10 @@ export class InventariosComponent implements OnInit {
 
   getclienteFill() {
     if (this.nombre == null) {
-      this.nombre ='XD';
+      this.nombre =null;
     }
     if (this.grupo == '') {
-      this.grupo = 'XD';
+      this.grupo = null;
     }
     if (this.cantidad == null) {
       this.cantidad = 0;

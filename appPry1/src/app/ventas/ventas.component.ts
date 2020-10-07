@@ -59,10 +59,10 @@ export class VentasComponent implements OnInit {
       this.venta = 0;
     }
     if (this.cliente == null) {
-      this.cliente = 'XD';
+      this.cliente = null;
     }
     if (this.metodo == null) {
-      this.metodo = 'XD';
+      this.metodo = null;
     }
     console.log(this.cliente)
     this.api.getVentaFiltro(this.venta, this.cliente, this.metodo).subscribe(Ventas => {

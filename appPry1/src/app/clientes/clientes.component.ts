@@ -68,13 +68,13 @@ export class ClientesComponent implements OnInit {
   
   getclienteFill() {
     if (this.nombre == null) {
-      this.nombre ='XD';
+      this.nombre =null;
     }
     if (this.categoria == '') {
-      this.categoria = 'XD';
+      this.categoria = null;
     }
     if (this.metodo == '') {
-      this.metodo = 'XD';
+      this.metodo = null;
     }
     this.api.getClienteFiltro(this.nombre, this.categoria, this.metodo).subscribe(Cliente => {
       this.contenidos = Cliente;

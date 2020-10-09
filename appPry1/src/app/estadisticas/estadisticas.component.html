@@ -78,65 +78,120 @@
         </mat-table>
     </div>
     <div class="conter2">
-      <span>Año: {{ano1_1}}</span>
-      <mat-slider
-      thumbLabel
-      [displayWith]="formatLabel"
-      tickInterval="1000"
-      min="2013"
-      max="2016" class="de1" [(ngModel)]="ano1_1"></mat-slider>
-      <br>
-      <span>Mes: {{ano1_1}}</span>
-      <mat-slider
-      thumbLabel
-      [displayWith]="formatLabel"
-      tickInterval="1"
-      min="1"
-      max="12" class="de2"></mat-slider>
+      <div class="a" @enterState2>
+        <span>Año inicial: {{ano1_1}}</span>
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="2013"
+        max="2016" class="de1" [(ngModel)]="ano1_1"></mat-slider>
+        <br>
+        <span>Mes inicial: {{mes1_1}}</span>
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1"
+        min="1"
+        max="12" class="de2" [(ngModel)]="mes1_1"></mat-slider>
+      </div>
+      <div class="aa" @enterState2>
+        <span>Año final: {{ano2_1}}</span>
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="2013"
+        max="2016" class="de1" [(ngModel)]="ano2_1"></mat-slider>
+        <br>
+        <span>Mes final: {{mes2_1}}</span>
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1"
+        min="1"
+        max="12" class="de2" [(ngModel)]="mes2_1"></mat-slider>
+      </div>
       <button mat-stroked-button class="filtro" @enterState2 (click)="filGrafic1()">Filtrar</button>
     </div>
     <div class="canvas1">
         <canvas width="500" height="200" id="ventas"></canvas>
     </div>
     <div class="conter3">
-        <mat-form-field class="fecha2">
-          <mat-label>Fecha 1</mat-label>
-        <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="myDatePicker2" placeholder="DD/MM/YYYY" [(ngModel)]="fecha1Grafica2">
-          <mat-datepicker-toggle matSuffix [for]="myDatePicker2"></mat-datepicker-toggle>
-          <mat-datepicker #myDatePicker2></mat-datepicker>
-        <!-- #enddocregion toggle -->
-        </mat-form-field>
-        <mat-form-field class="fecha4">
-          <mat-label>Fecha 2</mat-label>
-        <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="myDatePicker4"  placeholder="DD/MM/YYYY" [(ngModel)]="fecha2Grafica2">
-          <mat-datepicker-toggle matSuffix [for]="myDatePicker4"></mat-datepicker-toggle>
-          <mat-datepicker #myDatePicker4></mat-datepicker>
-        <!-- #enddocregion toggle -->
-        </mat-form-field>
+      <div class="a" @enterState2>
+        <span>Año inicial: {{ano1_2}}</span>
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="2013"
+        max="2016" class="de1" [(ngModel)]="ano1_2"></mat-slider>
+        <br>
+        <span>Mes inicial: {{mes1_2}}</span>
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1"
+        min="1"
+        max="12" class="de2" [(ngModel)]="mes1_2"></mat-slider>
+      </div>
+      <div class="aa" @enterState2>
+        <span>Año final: {{ano2_2}}</span>
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="2013"
+        max="2016" class="de1" [(ngModel)]="ano2_2"></mat-slider>
+        <br>
+        <span>Mes final: {{mes2_2}}</span>
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1"
+        min="1"
+        max="12" class="de2" [(ngModel)]="mes2_2"></mat-slider>
+      </div>
         <button mat-stroked-button class="filtro" @enterState2 (click)="filGrafic2()">Filtrar</button>
       </div>
       <div class="canvas2">
           <canvas width="500" height="200" id="ventas2"></canvas>
       </div>
       <div class="conter4">
-        <mat-form-field class="fecha2">
-          <mat-label>Fecha 1</mat-label>
-        <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="myDatePicker3" placeholder="DD/MM/YYYY" [(ngModel)]="fecha1Grafica3">
-          <mat-datepicker-toggle matSuffix [for]="myDatePicker3"></mat-datepicker-toggle>
-          <mat-datepicker #myDatePicker3></mat-datepicker>
-        <!-- #enddocregion toggle -->
-        </mat-form-field>
-        <mat-form-field class="fecha1">
-        <mat-label>Fecha 2</mat-label>
-        <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="myDatePicker5"  placeholder="DD/MM/YYYY" [(ngModel)]="fecha2Grafica3">
-          <mat-datepicker-toggle matSuffix [for]="myDatePicker5"></mat-datepicker-toggle>
-          <mat-datepicker #myDatePicker5></mat-datepicker>
-        <!-- #enddocregion toggle -->
-        </mat-form-field>
+        <div class="a" @enterState2>
+          <span>Año inicial: {{ano1_3}}</span>
+          <mat-slider
+          thumbLabel
+          [displayWith]="formatLabel"
+          tickInterval="1000"
+          min="2013"
+          max="2016" class="de1" [(ngModel)]="ano1_3"></mat-slider>
+          <br>
+          <span>Mes inicial: {{mes1_3}}</span>
+          <mat-slider
+          thumbLabel
+          [displayWith]="formatLabel"
+          tickInterval="1"
+          min="1"
+          max="12" class="de2" [(ngModel)]="mes1_3"></mat-slider>
+        </div>
+        <div class="aa" @enterState2>
+          <span>Año final: {{ano2_3}}</span>
+          <mat-slider
+          thumbLabel
+          [displayWith]="formatLabel"
+          tickInterval="1000"
+          min="2013"
+          max="2016" class="de1" [(ngModel)]="ano2_3"></mat-slider>
+          <br>
+          <span>Mes final: {{mes2_3}}</span>
+          <mat-slider
+          thumbLabel
+          [displayWith]="formatLabel"
+          tickInterval="1"
+          min="1"
+          max="12" class="de2" [(ngModel)]="mes2_3"></mat-slider>
+        </div>
         <button mat-stroked-button class="filtro" @enterState2 (click)="filGrafic3()">Filtrar</button>
       </div>
       <div class="canvas3">

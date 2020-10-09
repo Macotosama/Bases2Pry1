@@ -38,7 +38,7 @@ export class Api {
   private urlClientesPromedio: string = 'http://localhost:8000/getAVGExpensiveCustomer';
   private urlTopProductos: string = 'http://localhost:8000/getTopProductsFilter';
   private urlTopClientes: string = 'http://localhost:8000/getMaxCustomesInvoices';
-  private urlTopProveedores: string = 'http://localhost:8000/getAllClienteInformationFilter';
+  private urlTopProveedores: string = 'http://localhost:8000/getMostQuatitySupplierOrders';
   private urlCategoriasProveedores: string ='http://localhost:8000/getAllSupplierCategories';
   private urlProveedoreFiltros: string ='http://localhost:8000/getAllSuplierInformationFilter';
   private urlGrupos: string ='http://localhost:8000/getAllGrups';

@@ -52,8 +52,18 @@ export class EstadisticasComponent implements OnInit {
   public proveedores: ProveedoresTops;
   public filProveedor = 'altos';
   public filProvee: string;
-  public ano1_1: string = '2013';
-  public mes1_1: string = '1';
+  public ano1_1: number = 2013;
+  public mes1_1: number = 1;
+  public ano2_1: number = 2013;
+  public mes2_1: number = 1;
+  public ano1_2: number = 2013;
+  public mes1_2: number = 1;
+  public ano2_2: number = 2013;
+  public mes2_2: number = 1;
+  public ano1_3: number = 2013;
+  public mes1_3: number = 1;
+  public ano2_3: number = 2013;
+  public mes2_3: number = 1;
   public myDatePicker1: string;
   public myDatePicker2: string;
   public myDatePicker3: string;
@@ -94,14 +104,11 @@ export class EstadisticasComponent implements OnInit {
   }
 
   filGrafic3() {
-    if(this.fecha1Grafica3 != null && this.fecha2Grafica3 != null) { 
-        if(Date.parse(this.fecha1Grafica3) < Date.parse(this.fecha2Grafica3)) {
-          if(Date.parse('2016-05-31') >= Date.parse(this.fecha2Grafica3) && Date.parse('2013-01-01') <= Date.parse(this.fecha1Grafica3)){
-            var f1 = this.fecha1Grafica3.toString().split(' ');
-            var f2 = this.fecha2Grafica3.toString().split(' ');
-            this.api.getTopProveedores(`${f1[3]}-${f1[1]}-${f1[2]}`,`${f2[3]}-${f2[1]}-${f2[2]}`).subscribe(Response => {
+    if(this.ano1_3 <= this.ano2_3) { 
+      if(this.ano1_3 == this.ano2_3) {
+        if(this.mes1_3 <= this.mes2_3){
+            this.api.getTopProveedores(`${this.ano1_3}-${this.mes1_3}-1`,`${this.ano2_3}-${this.mes2_3}-1`).subscribe(Response => {
               this.topProveedor = Response;
-              console.log(this.topProveedor)
               this.label3 = [];
               this.data3 = [];
               for(var i = 0; i < this.topProveedor.length; i++){
@@ -118,17 +125,31 @@ export class EstadisticasComponent implements OnInit {
             this.fecha1Grafica2 = null;
             this.fecha2Grafica2 = null;
           }
-        }
+      } else {
+        this.api.getTopProveedores(`${this.ano1_3}-${this.mes1_3}-1`,`${this.ano2_3}-${this.mes2_3}-1`).subscribe(Response => {
+          this.topProveedor = Response;
+          this.label3 = [];
+          this.data3 = [];
+          for(var i = 0; i < this.topProveedor.length; i++){
+            this.label3.push(this.topProveedor[i].SupplierName);
+            this.data3.push(this.topProveedor[i].PurchaseOrders);
+
+          }
+          this.topProveedores.chart.data.labels = this.label3;
+          this.topProveedores.chart.data.datasets.forEach((dataset) => {
+            dataset.data = this.data3;
+          })
+          this.topProveedores.update();
+        })
+      }
     }
   }
 
   filGrafic2() {
-    if(this.fecha1Grafica2 != null && this.fecha2Grafica2 != null) { 
-        if(Date.parse(this.fecha1Grafica2) < Date.parse(this.fecha2Grafica2)) {
-          if(Date.parse('2016-05-31') >= Date.parse(this.fecha2Grafica2) && Date.parse('2013-01-01') <= Date.parse(this.fecha1Grafica2)){
-            var f1 = this.fecha1Grafica2.toString().split(' ');
-            var f2 = this.fecha2Grafica2.toString().split(' ');
-            this.api.getTopClientes(`${f1[3]}-${f1[1]}-${f1[2]}`,`${f2[3]}-${f2[1]}-${f2[2]}`).subscribe(Response => {
+    if(this.ano1_2 <= this.ano2_2) { 
+      if(this.ano1_2 == this.ano2_2) {
+        if(this.mes1_2 <= this.mes2_2){
+            this.api.getTopClientes(`${this.ano1_2}-${this.mes1_2}-1`,`${this.ano2_2}-${this.mes2_2}-1`).subscribe(Response => {
               this.topCliente = Response;
               this.label2 = [];
               this.data2 = [];
@@ -146,17 +167,31 @@ export class EstadisticasComponent implements OnInit {
             this.fecha1Grafica2 = null;
             this.fecha2Grafica2 = null;
           }
-        }
+      } else {
+        this.api.getTopClientes(`${this.ano1_2}-${this.mes1_2}-1`,`${this.ano2_2}-${this.mes2_2}-1`).subscribe(Response => {
+          this.topCliente = Response;
+          this.label2 = [];
+          this.data2 = [];
+          for(var i = 0; i < this.topCliente.length; i++){
+            this.label2.push(this.topCliente[i].CustomerName);
+            this.data2.push(this.topCliente[i].TotalInvoices);
+
+          }
+          this.topClientes.chart.data.labels = this.label2;
+          this.topClientes.chart.data.datasets.forEach((dataset) => {
+            dataset.data = this.data2;
+          })
+          this.topClientes.update();
+        })
+      }
     }
   }
 
   filGrafic1() {
-    if(this.fecha1Grafica1 != null && this.fecha2Grafica1 != null) { 
-        if(Date.parse(this.fecha1Grafica1) < Date.parse(this.fecha2Grafica1)) {
-          if(Date.parse('2016-05-31') >= Date.parse(this.fecha2Grafica1) && Date.parse('2013-01-01') <= Date.parse(this.fecha1Grafica1)){
-            var f1 = this.fecha1Grafica1.toString().split(' ');
-            var f2 = this.fecha2Grafica1.toString().split(' ');
-            this.api.getTopProductos(`${f1[3]}-${f1[1]}-${f1[2]}`,`${f2[3]}-${f2[1]}-${f2[2]}`).subscribe(Response => {
+    if(this.ano1_1 <= this.ano2_1) { 
+        if(this.ano1_1 == this.ano2_1) {
+          if(this.mes1_1 <= this.mes2_1){
+            this.api.getTopProductos(`${this.ano1_1}-${this.mes1_1}-1`,`${this.ano2_1}-${this.mes2_1}-1`).subscribe(Response => {
               this.datosGraf1 = Response;
               this.label1 = [];
               this.data1 = [];
@@ -174,6 +209,22 @@ export class EstadisticasComponent implements OnInit {
             this.fecha1Grafica1 = null;
             this.fecha2Grafica1 = null;
           }
+        } else {
+          this.api.getTopProductos(`${this.ano1_1}-${this.mes1_1}-1`,`${this.ano2_1}-${this.mes2_1}-1`).subscribe(Response => {
+            this.datosGraf1 = Response;
+            this.label1 = [];
+            this.data1 = [];
+            for(var i = 0; i < this.datosGraf1.length; i++){
+              this.label1.push(this.datosGraf1[i].StockItemName);
+              this.data1.push(this.datosGraf1[i].Quantity);
+
+            }
+            this.topProductos.chart.data.labels = this.label1;
+            this.topProductos.chart.data.datasets.forEach((dataset) => {
+              dataset.data = this.data1;
+            })
+            this.topProductos.update();
+          })
         }
     }
   }
@@ -320,7 +371,7 @@ export class EstadisticasComponent implements OnInit {
   initChart3(): void {
     var ctx = document.getElementById('ventas3');
     this.topProveedores = new Chart(ctx, {
-        type: 'radar',
+        type: 'line',
         data: {
             labels: this.label3,
             datasets: [{

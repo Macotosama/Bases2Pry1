@@ -78,22 +78,21 @@
         </mat-table>
     </div>
     <div class="conter2">
-      <mat-form-field class="fecha1">
-        <mat-label>Fecha 1</mat-label>
-      <!-- #docregion toggle -->
-        <input matInput [matDatepicker]="myDatePicker"  placeholder="DD/MM/YYYY" [(ngModel)]="fecha1Grafica1">
-        <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
-        <mat-datepicker #myDatePicker></mat-datepicker>
-      <!-- #enddocregion toggle -->
-      </mat-form-field>
-      <mat-form-field class="fecha1">
-        <mat-label>Fecha 2</mat-label>
-      <!-- #docregion toggle -->
-        <input matInput [matDatepicker]="myDatePicker1"  placeholder="DD/MM/YYYY" [(ngModel)]="fecha2Grafica1">
-        <mat-datepicker-toggle matSuffix [for]="myDatePicker1"></mat-datepicker-toggle>
-        <mat-datepicker #myDatePicker1></mat-datepicker>
-      <!-- #enddocregion toggle -->
-      </mat-form-field>
+      <span>Año: {{ano1_1}}</span>
+      <mat-slider
+      thumbLabel
+      [displayWith]="formatLabel"
+      tickInterval="1000"
+      min="2013"
+      max="2016" class="de1" [(ngModel)]="ano1_1"></mat-slider>
+      <br>
+      <span>Mes: {{ano1_1}}</span>
+      <mat-slider
+      thumbLabel
+      [displayWith]="formatLabel"
+      tickInterval="1"
+      min="1"
+      max="12" class="de2"></mat-slider>
       <button mat-stroked-button class="filtro" @enterState2 (click)="filGrafic1()">Filtrar</button>
     </div>
     <div class="canvas1">

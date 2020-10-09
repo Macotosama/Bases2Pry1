@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule }   from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { FormsModule }   from '@angular/forms';
     HttpClientModule,
     MatListModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

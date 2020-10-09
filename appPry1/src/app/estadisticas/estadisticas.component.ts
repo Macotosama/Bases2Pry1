@@ -52,6 +52,8 @@ export class EstadisticasComponent implements OnInit {
   public proveedores: ProveedoresTops;
   public filProveedor = 'altos';
   public filProvee: string;
+  public ano1_1: string = '2013';
+  public mes1_1: string = '1';
   public myDatePicker1: string;
   public myDatePicker2: string;
   public myDatePicker3: string;
@@ -85,6 +87,10 @@ export class EstadisticasComponent implements OnInit {
     this.initChart();
     this.initChart2();
     this.initChart3();
+  }
+  
+  formatLabel(value: number) {
+    return value;
   }
 
   filGrafic3() {

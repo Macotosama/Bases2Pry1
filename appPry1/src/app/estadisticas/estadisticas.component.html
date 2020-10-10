@@ -19,22 +19,22 @@
         <mat-table [dataSource]="proveedores" class="tabla">
             <ng-container matColumnDef="Identificador">
             <mat-header-cell *matHeaderCellDef>Identificador</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.SupplierID}} </mat-cell>
+            <mat-cell *matCellDef="let element" > {{element.SupplierID}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="Nombre">
             <mat-header-cell *matHeaderCellDef> Nombre</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.SupplierName}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.SupplierName}} </mat-cell>
             </ng-container>
             
             <ng-container matColumnDef="Categoría">
               <mat-header-cell *matHeaderCellDef> Categoría</mat-header-cell>
-              <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.SupplierCategoryName}} </mat-cell>
+              <mat-cell *matCellDef="let element"> {{element.SupplierCategoryName}} </mat-cell>
             </ng-container>
         
             <ng-container matColumnDef="Compra">
             <mat-header-cell *matHeaderCellDef> Compra</mat-header-cell>
-            <mat-cell *matCellDef="let element" (click)="dialogClientes()"> {{element.Quantity}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.Quantity}} </mat-cell>
             </ng-container>
         
             <mat-header-row *matHeaderRowDef="columnasProveedor"></mat-header-row>
@@ -70,7 +70,7 @@
         
             <ng-container matColumnDef="metodo">
             <mat-header-cell *matHeaderCellDef> Vendido</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.Quantity}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.Quantity*-1}} </mat-cell>
             </ng-container>
         
             <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>

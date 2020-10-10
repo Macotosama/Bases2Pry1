@@ -197,7 +197,7 @@ export class EstadisticasComponent implements OnInit {
               this.data1 = [];
               for(var i = 0; i < this.datosGraf1.length; i++){
                 this.label1.push(this.datosGraf1[i].StockItemName);
-                this.data1.push(this.datosGraf1[i].Quantity);
+                this.data1.push(this.datosGraf1[i].Quantity*-1);
 
               }
               this.topProductos.chart.data.labels = this.label1;
@@ -216,7 +216,7 @@ export class EstadisticasComponent implements OnInit {
             this.data1 = [];
             for(var i = 0; i < this.datosGraf1.length; i++){
               this.label1.push(this.datosGraf1[i].StockItemName);
-              this.data1.push(this.datosGraf1[i].Quantity);
+              this.data1.push(this.datosGraf1[i].Quantity*-1);
 
             }
             this.topProductos.chart.data.labels = this.label1;
